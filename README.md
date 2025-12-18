@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Life Balance Wheel
 
-# Run and deploy your AI Studio app
+An interactive “life balance wheel” you can doodle by dragging slices, then download or copy as an image.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1hUgyNRX-ZERxcxI4PmFH-G3c3d6utnS-
+- Drag slices to adjust scores
+- Hover labels to see category descriptions
+- i18n (English / 中文) with language persisted in localStorage
+- Bottom dock actions: switch language, download PNG, copy image to clipboard
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- Vite + React + TypeScript
+- Tailwind CSS
+- i18next + react-i18next
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Prerequisites:** Node.js (recommend using `pnpm`)
+
+1. Install deps
+   - `pnpm install`
+2. Start dev server
+   - `pnpm dev`
+
+## Inspiration
+
+- https://medium.com/hannah-lin/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E8%88%87%E5%B0%BF%E5%B8%83-%E5%AA%BD%E5%AA%BD%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97-fc4dce437784
