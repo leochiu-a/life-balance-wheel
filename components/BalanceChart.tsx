@@ -270,7 +270,9 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onMouseUp}
-        className={`max-w-full h-auto ${activeSliceIndex !== null ? 'cursor-grabbing' : 'cursor-crosshair'}`}
+        className={`max-w-full h-auto ${
+          activeSliceIndex !== null ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
         style={{ touchAction: 'none' }}
       />
     </div>
