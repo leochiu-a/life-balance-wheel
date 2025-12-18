@@ -25,7 +25,10 @@ export default function App() {
       const minSize = 280;
       const areaWidth = chartAreaRef.current?.getBoundingClientRect().width;
       const availableWidth = (areaWidth ?? window.innerWidth) - 24;
-      const availableHeight = window.innerHeight - viewportPadding - dockHeight - 240;
+      const chartAreaTop =
+        chartAreaRef.current?.getBoundingClientRect().top ?? viewportPadding;
+      const availableHeight =
+        window.innerHeight - chartAreaTop - dockHeight - 16;
       const squareSize = Math.min(availableWidth, availableHeight); // keep 1:1 ratio
       const nextSize = Math.max(minSize, Math.min(maxSize, squareSize));
       setChartSize(nextSize);
@@ -93,8 +96,8 @@ export default function App() {
   const usageGuide = t("usageGuide", { returnObjects: true }) as string[];
 
   return (
-    <div className="min-h-screen pb-10 text-slate-800">
-      <main className="mx-auto w-full max-w-6xl px-4 py-10">
+    <div className="min-h-screen pb-6 text-slate-800 md:pb-8">
+      <main className="mx-auto w-full max-w-6xl px-4 pt-10 pb-8">
         <div className="rounded-3xl border border-stone-200/70 bg-white/70 p-6 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] backdrop-blur md:p-10">
           <Header />
 

@@ -7,7 +7,7 @@ export default function AttributionFooter() {
   const { t } = useTranslation();
 
   return (
-    <footer className="mt-8 flex items-center justify-center px-4 pb-6 text-sm text-slate-600 md:text-base">
+    <footer className="mt-8 flex items-center justify-center px-4 pb-2 text-sm text-slate-600 md:text-base">
       <div className="text-center">
         <a
           href={SOURCE_URL}
