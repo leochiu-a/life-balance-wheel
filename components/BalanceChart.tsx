@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { Category, Point } from '../types';
 import { CHART_SIZE as BASE_CHART_SIZE, MAX_VALUE } from '../constants';
 import { drawSketchyLine, drawSketchyCircle, drawScribbleSlice } from '../utils/sketchy';
+import CategoryPopover from './CategoryPopover';
+import { useCategoryLabelPopover } from '../hooks/useCategoryLabelPopover';
 
 interface BalanceChartProps {
   data: Category[];
@@ -25,6 +27,15 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
     const labelOffset = Math.max(35 * scale, 44);
     return { chartSize, center, radius, labelOffset };
   }, [size]);
+
+  const { popover, updateFromPointer, clear: clearPopover } = useCategoryLabelPopover({
+    canvasRef,
+    chartSize,
+    data,
+    center,
+    radius,
+    labelOffset,
+  });
 
   // Helper to get mouse/touch position mapped to logical chart coordinates
   const getPointerPos = (e: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent): Point | null => {
@@ -113,6 +124,8 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
     const pos = getPointerPos(e);
     if (!pos) return;
 
+    clearPopover();
+
     const index = getSliceIndex(pos);
     if (index >= 0 && index < data.length) {
       setActiveSliceIndex(index);
@@ -126,6 +139,7 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
       const pos = getPointerPos(e);
       if (!pos) return;
       setIsHoveringCircle(isPointInCircle(pos));
+      updateFromPointer(pos);
       return;
     }
 
@@ -146,6 +160,7 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
   const onMouseLeave = () => {
     setActiveSliceIndex(null);
     setIsHoveringCircle(false);
+    clearPopover();
   };
 
   // Touch handling
@@ -280,7 +295,7 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
   }, [activeSliceIndex, chartSize, data, getValueForSlice, labelOffset, radius, center]);
 
   return (
-    <div className="relative touch-none select-none flex justify-center items-center overflow-hidden">
+    <div className="relative touch-none select-none flex justify-center items-center overflow-visible">
       <canvas
         ref={canvasRef}
         onMouseDown={onMouseDown}
@@ -299,6 +314,8 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
         }`}
         style={{ touchAction: 'none' }}
       />
+
+      <CategoryPopover popover={popover} />
     </div>
   );
 };
