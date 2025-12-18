@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Patrick Hand", system-ui, -apple-system, "PingFang TC",
+      "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif;
+    background-color: #fdfbf7;
+  }
+}
