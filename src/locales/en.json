@@ -2,6 +2,9 @@
   "ui": {
     "title": "Life Balance Wheel",
     "subtitle": "How is your life going? Drag the slices to reflect your current state.",
+    "switchLanguage": "Switch language",
+    "guideTitle": "A quick guide",
+    "dockTip": "Bottom dock: switch language, download, or copy your wheel.",
     "save": "Save",
     "copy": "Copy",
     "copied": "Copied! ✨",

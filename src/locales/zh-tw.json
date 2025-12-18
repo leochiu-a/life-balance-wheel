@@ -2,6 +2,9 @@
   "ui": {
     "title": "人生平衡輪",
     "subtitle": "你的生活過得怎麼樣？拖拉輪盤的切片，畫出現在的狀態。",
+    "switchLanguage": "切換語言",
+    "guideTitle": "快速小指南",
+    "dockTip": "底部 dock：切換語言、下載或複製你的輪盤。",
     "save": "下載圖片",
     "copy": "複製圖片",
     "copied": "已複製！✨",
