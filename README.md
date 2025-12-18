@@ -2,6 +2,8 @@
 
 An interactive “life balance wheel” you can doodle by dragging slices, then download or copy as an image.
 
+<img src="public/image.png" />
+
 ## Features
 
 - Drag slices to adjust scores
