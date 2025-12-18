@@ -13,6 +13,7 @@ interface BalanceChartProps {
 const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, size }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [activeSliceIndex, setActiveSliceIndex] = useState<number | null>(null);
+  const [isHoveringCircle, setIsHoveringCircle] = useState(false);
 
   const { chartSize, center, radius, labelOffset } = useMemo(() => {
     const chartSize = size ?? BASE_CHART_SIZE;
@@ -69,6 +70,15 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
     return Math.floor(chartAngle / sliceAngle);
   };
 
+  const isPointInCircle = useCallback(
+    (pos: Point) => {
+      const dx = pos.x - center;
+      const dy = pos.y - center;
+      return dx * dx + dy * dy <= radius * radius;
+    },
+    [center, radius]
+  );
+
   /**
    * Calculates the value based on the projection of the mouse vector onto the slice's center vector.
    * This ensures dragging feels like pulling along a track, rather than just distance from center.
@@ -112,6 +122,13 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
+    if (activeSliceIndex === null) {
+      const pos = getPointerPos(e);
+      if (!pos) return;
+      setIsHoveringCircle(isPointInCircle(pos));
+      return;
+    }
+
     if (activeSliceIndex === null) return;
     const pos = getPointerPos(e);
     if (!pos) return;
@@ -126,7 +143,10 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
   };
 
   const onMouseUp = () => setActiveSliceIndex(null);
-  const onMouseLeave = () => setActiveSliceIndex(null);
+  const onMouseLeave = () => {
+    setActiveSliceIndex(null);
+    setIsHoveringCircle(false);
+  };
 
   // Touch handling
   const onTouchStart = (e: React.TouchEvent) => {
@@ -271,7 +291,11 @@ const BalanceChart: React.FC<BalanceChartProps> = ({ data, onChange, readOnly, s
         onTouchMove={onTouchMove}
         onTouchEnd={onMouseUp}
         className={`max-w-full h-auto ${
-          activeSliceIndex !== null ? 'cursor-grabbing' : 'cursor-grab'
+          activeSliceIndex !== null
+            ? 'cursor-grabbing'
+            : isHoveringCircle
+              ? 'cursor-grab'
+              : 'cursor-default'
         }`}
         style={{ touchAction: 'none' }}
       />
