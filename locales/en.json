@@ -1,0 +1,80 @@
+{
+  "ui": {
+    "title": "Life Balance Wheel",
+    "subtitle": "How is your life going? Drag the slices to reflect your current state.",
+    "save": "Save",
+    "copy": "Copy",
+    "copied": "Copied! ✨",
+    "tip": "Tip: Click and drag on the wheel to paint your life balance.",
+    "copyUnsupported": "Browser doesn't support direct image copy. Please use Download instead."
+  },
+  "footer": {
+    "source": "source",
+    "madeBy": "made with ❤️ by {{author}}"
+  },
+  "usageGuide": [
+    "No need to be even: different seasons of life have different priorities",
+    "Look for gaps: the lowest area is often where stress comes from",
+    "Make small shifts: pick 1–2 areas and set small, doable actions"
+  ],
+  "categories": {
+    "labels": {
+      "body": "Body",
+      "mind": "Mind",
+      "soul": "Soul",
+      "fun": "Fun",
+      "romance": "Romance",
+      "family": "Family",
+      "friends": "Friends",
+      "growth": "Growth",
+      "money": "Money",
+      "mission": "Mission"
+    },
+    "info": {
+      "mission": {
+        "title": "Mission (Purpose / Direction)",
+        "description": "Do you have a clear direction for your life?\\nDo your current actions feel aligned with your values and long-term goals?"
+      },
+      "body": {
+        "title": "Body (Health / Energy)",
+        "description": "Physical health, fitness, routines, diet, and sleep.\\nIncludes exercise habits and whether you feel energized."
+      },
+      "mind": {
+        "title": "Mind (Learning / Mental Strength)",
+        "description": "Quality of thinking, focus, learning, and resilience.\\nAre you learning consistently and managing stress and emotions well?"
+      },
+      "soul": {
+        "title": "Soul (Inner Peace / Meaning)",
+        "description": "Inner peace, meaning, beliefs, and spirituality (not necessarily religion).\\nDo you feel grounded and connected to yourself?"
+      },
+      "fun": {
+        "title": "Fun (Leisure / Enjoyment)",
+        "description": "Joy, relaxation, hobbies, and entertainment.\\nDo you allow yourself to enjoy life—not just responsibilities?"
+      },
+      "romance": {
+        "title": "Romance (Intimacy / Partnership)",
+        "description": "Quality of your romantic or intimate connection.\\nIncludes communication, trust, companionship, and emotional fulfillment."
+      },
+      "family": {
+        "title": "Family",
+        "description": "Your relationship with your family of origin or the family you build.\\nSupport, connection quality, and balanced responsibilities."
+      },
+      "friends": {
+        "title": "Friends (Social Life)",
+        "description": "The depth and breadth of your social circle.\\nDo you have honest, supportive relationships?"
+      },
+      "growth": {
+        "title": "Growth (Personal Development)",
+        "description": "Personal growth, skill-building, and stepping outside your comfort zone.\\nBeyond career: character and perspective growth too."
+      },
+      "money": {
+        "title": "Money (Financial Security)",
+        "description": "Income, savings, investing, security, and control over money.\\nNot just how much you earn—whether you feel safe and have choices."
+      }
+    }
+  },
+  "languageNames": {
+    "en": "English",
+    "zh-tw": "中文"
+  }
+}

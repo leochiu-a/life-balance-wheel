@@ -1,0 +1,80 @@
+{
+  "ui": {
+    "title": "人生平衡輪",
+    "subtitle": "你的生活過得怎麼樣？拖拉輪盤的切片，畫出現在的狀態。",
+    "save": "下載圖片",
+    "copy": "複製圖片",
+    "copied": "已複製！✨",
+    "tip": "提示：點擊並拖曳輪盤，就能畫出你的生活平衡。",
+    "copyUnsupported": "瀏覽器不支援直接複製圖片，請改用下載。"
+  },
+  "footer": {
+    "source": "原始碼",
+    "madeBy": "由 {{author}} 滿滿的 ❤️ 製作"
+  },
+  "usageGuide": [
+    "不求平均：人生不同階段，本來就會有側重",
+    "找落差：最低分的象限通常是壓力來源",
+    "小幅調整：每次選 1–2 個象限，設定可行的小行動"
+  ],
+  "categories": {
+    "labels": {
+      "body": "Body",
+      "mind": "Mind",
+      "soul": "Soul",
+      "fun": "Fun",
+      "romance": "Romance",
+      "family": "Family",
+      "friends": "Friends",
+      "growth": "Growth",
+      "money": "Money",
+      "mission": "Mission"
+    },
+    "info": {
+      "mission": {
+        "title": "Mission（使命／人生目標）",
+        "description": "你是否清楚自己的人生方向？\\n是否覺得現在做的事與你的價值觀、長期目標一致。"
+      },
+      "body": {
+        "title": "Body（身體／健康）",
+        "description": "身體健康、體能、作息、飲食、睡眠。\\n包含是否有運動習慣、精力是否充沛。"
+      },
+      "mind": {
+        "title": "Mind（心智／學習）",
+        "description": "思考品質、專注力、學習與成長、心理韌性。\\n是否持續學新東西、能管理壓力與情緒。"
+      },
+      "soul": {
+        "title": "Soul（心靈／內在）",
+        "description": "內在平靜、意義感、信念、精神層面（不一定是宗教）。\\n是否覺得內心踏實、與自己連結。"
+      },
+      "fun": {
+        "title": "Fun（玩樂／休閒）",
+        "description": "生活中的樂趣、放鬆、興趣、娛樂。\\n是否允許自己享受生活，而不只有責任。"
+      },
+      "romance": {
+        "title": "Romance（親密關係／愛情）",
+        "description": "伴侶關係或親密連結的品質。\\n包含溝通、信任、陪伴與情感滿足。"
+      },
+      "family": {
+        "title": "Family（家庭）",
+        "description": "與原生家庭或自己建立的家庭的關係。\\n支持感、互動品質、責任平衡。"
+      },
+      "friends": {
+        "title": "Friends（朋友／社交）",
+        "description": "朋友圈的深度與廣度。\\n是否有能互相支持、真誠相處的人際關係。"
+      },
+      "growth": {
+        "title": "Growth（成長／自我發展）",
+        "description": "個人成長、能力提升、挑戰舒適圈。\\n職涯以外，也包含人格與視野的成長。"
+      },
+      "money": {
+        "title": "Money（財務）",
+        "description": "收入、儲蓄、投資、安全感與金錢掌控度。\\n不是單指賺多少，而是是否安心、有選擇權。"
+      }
+    }
+  },
+  "languageNames": {
+    "en": "English",
+    "zh-tw": "中文"
+  }
+}

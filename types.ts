@@ -11,6 +11,6 @@ export interface Point {
   y: number;
 }
 
-export type Locale = 'en' | 'zh';
+export type Locale = 'en' | 'zh-tw';
 
 export type CategoryBase = Omit<Category, 'label'>;

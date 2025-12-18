@@ -1,17 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sparkles } from 'lucide-react';
-import { LANGUAGE_LABELS } from '../constants';
 import { Locale } from '../types';
 
-type HeaderProps = {
-  onChangeLanguage: (locale: Locale) => void;
-  currentLocale: Locale;
-};
-
-const Header: React.FC<HeaderProps> = ({ onChangeLanguage, currentLocale }) => {
-  const { t } = useTranslation();
-  const languages: Locale[] = ['en', 'zh'];
+const Header: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const languages: Locale[] = ['en', 'zh-tw'];
+  const currentLocale: Locale =
+    (i18n.resolvedLanguage ?? i18n.language ?? 'en').toLowerCase().startsWith('zh') ? 'zh-tw' : 'en';
 
   return (
     <header className="text-center py-6 mb-4">
@@ -23,14 +19,14 @@ const Header: React.FC<HeaderProps> = ({ onChangeLanguage, currentLocale }) => {
             return (
               <button
                 key={lng}
-                onClick={() => onChangeLanguage(lng)}
+                onClick={() => i18n.changeLanguage(lng)}
                 className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors ${
                   isActive
                     ? 'bg-slate-800 text-white shadow-sm'
                     : 'text-slate-700 hover:bg-white'
                 }`}
               >
-                {LANGUAGE_LABELS[lng]}
+                {t(`languageNames.${lng}`)}
               </button>
             );
           })}

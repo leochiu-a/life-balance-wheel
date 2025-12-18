@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState } from 'react';
-import { CATEGORY_INFO } from '../constants';
 import { Category, Point } from '../types';
 
 type HoverPopover =
@@ -84,7 +83,7 @@ export function useCategoryLabelPopover(params: {
         }
       }
 
-      if (!nextHoveredId || !nextAnchor || !CATEGORY_INFO[nextHoveredId]) {
+      if (!nextHoveredId || !nextAnchor) {
         if (hoveredLabelIdRef.current !== null) clear();
         return;
       }
@@ -117,4 +116,3 @@ export function useCategoryLabelPopover(params: {
 
   return { popover, updateFromPointer, clear };
 }
-

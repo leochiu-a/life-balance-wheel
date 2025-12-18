@@ -5,7 +5,7 @@ import BalanceChart from "./components/BalanceChart";
 import Header from "./components/Header";
 import AttributionFooter from "./components/AttributionFooter";
 import { INITIAL_DATA, CHART_SIZE as BASE_CHART_SIZE } from "./constants";
-import { Category, CategoryBase, Locale } from "./types";
+import { Category, CategoryBase } from "./types";
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -35,10 +35,6 @@ export default function App() {
     setData((prev) =>
       prev.map((item) => (item.id === id ? { ...item, value: newValue } : item))
     );
-  };
-
-  const handleChangeLanguage = (locale: Locale) => {
-    i18n.changeLanguage(locale);
   };
 
   const localizedData: Category[] = useMemo(
@@ -86,10 +82,7 @@ export default function App() {
           className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-10 border-2 border-stone-200"
           ref={chartContainerRef}
         >
-          <Header
-            onChangeLanguage={handleChangeLanguage}
-            currentLocale={(i18n.language as Locale) ?? "en"}
-          />
+          <Header />
 
           <div className="flex flex-col items-center">
             <div className="bg-[#fdfbf7] p-4 rounded-lg shadow-inner border border-stone-100 mb-8 w-full flex justify-center overflow-x-auto">
