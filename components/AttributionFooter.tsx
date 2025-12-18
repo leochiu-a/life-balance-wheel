@@ -10,7 +10,7 @@ export default function AttributionFooter() {
           href={SOURCE_URL}
           target="_blank"
           rel="noreferrer"
-          className="font-semibold text-blue-700 hover:text-blue-800 underline underline-offset-2"
+          className="font-semibold text-blue-700 hover:text-blue-800 hover:underline focus-visible:underline underline-offset-2"
         >
           source
         </a>
