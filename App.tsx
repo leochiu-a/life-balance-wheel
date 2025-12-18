@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import BalanceChart from "./components/BalanceChart";
 import Header from "./components/Header";
+import AttributionFooter from "./components/AttributionFooter";
 import { INITIAL_DATA, CHART_SIZE as BASE_CHART_SIZE } from "./constants";
 import { Category } from "./types";
 import { Download, Copy } from "lucide-react";
@@ -66,53 +67,57 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-100 py-8 px-4 font-sans text-slate-800">
-      <div
-        className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-10 border-2 border-stone-200"
-        ref={chartContainerRef}
-      >
-        <Header />
+    <div className="min-h-screen bg-stone-100 py-8 px-4 font-sans text-slate-800 flex flex-col">
+      <main className="flex-1">
+        <div
+          className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-10 border-2 border-stone-200"
+          ref={chartContainerRef}
+        >
+          <Header />
 
-        <div className="flex flex-col items-center">
-          <div className="bg-[#fdfbf7] p-4 rounded-lg shadow-inner border border-stone-100 mb-8 w-full flex justify-center overflow-x-auto">
-            <BalanceChart
-              data={data}
-              onChange={handleChartChange}
-              size={chartSize}
-            />
-          </div>
+          <div className="flex flex-col items-center">
+            <div className="bg-[#fdfbf7] p-4 rounded-lg shadow-inner border border-stone-100 mb-8 w-full flex justify-center overflow-x-auto">
+              <BalanceChart
+                data={data}
+                onChange={handleChartChange}
+                size={chartSize}
+              />
+            </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 w-full max-w-2xl">
-            <button
-              onClick={handleDownload}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full font-semibold transition-colors shadow-sm min-w-[140px]"
-            >
-              <Download size={20} /> Save
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-3 w-full max-w-2xl">
+              <button
+                onClick={handleDownload}
+                className="flex items-center justify-center gap-2 px-5 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full font-semibold transition-colors shadow-sm min-w-[140px]"
+              >
+                <Download size={20} /> Save
+              </button>
 
-            <button
-              onClick={handleCopy}
-              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold transition-all shadow-sm min-w-[140px] ${
-                copied
-                  ? "bg-green-500 text-white"
-                  : "bg-slate-800 text-white hover:bg-slate-700"
-              }`}
-            >
-              {copied ? (
-                <>Copied! ✨</>
-              ) : (
-                <>
-                  <Copy size={20} /> Copy
-                </>
-              )}
-            </button>
-          </div>
+              <button
+                onClick={handleCopy}
+                className={`flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold transition-all shadow-sm min-w-[140px] ${
+                  copied
+                    ? "bg-green-500 text-white"
+                    : "bg-slate-800 text-white hover:bg-slate-700"
+                }`}
+              >
+                {copied ? (
+                  <>Copied! ✨</>
+                ) : (
+                  <>
+                    <Copy size={20} /> Copy
+                  </>
+                )}
+              </button>
+            </div>
 
-          <div className="mt-8 text-center text-sm text-gray-400">
-            <p>Tip: Click and drag on the wheel to paint your life balance.</p>
+            <div className="mt-8 text-center text-sm text-gray-400">
+              <p>Tip: Click and drag on the wheel to paint your life balance.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      <AttributionFooter />
     </div>
   );
 }
