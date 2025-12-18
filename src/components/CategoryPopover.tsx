@@ -21,7 +21,10 @@ export default function CategoryPopover(props: {
     >
       <div className="w-[min(360px,calc(100vw-2rem))] -translate-x-1/2 -translate-y-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-sans text-slate-700 shadow-lg">
         <div className="font-bold">{title}</div>
-        <div className="mt-1 text-slate-600 whitespace-pre-line">{description}</div>
+        <div
+          className="mt-1 text-slate-600"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </div>
     </div>,
     document.body

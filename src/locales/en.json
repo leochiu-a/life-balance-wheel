@@ -36,43 +36,43 @@
     "info": {
       "mission": {
         "title": "Mission (Purpose / Direction)",
-        "description": "Do you have a clear direction for your life?\\nDo your current actions feel aligned with your values and long-term goals?"
+        "description": "Do you have a clear direction for your life?<br />Do your current actions feel aligned with your values and long-term goals?"
       },
       "body": {
         "title": "Body (Health / Energy)",
-        "description": "Physical health, fitness, routines, diet, and sleep.\\nIncludes exercise habits and whether you feel energized."
+        "description": "Physical health, fitness, routines, diet, and sleep.<br />Includes exercise habits and whether you feel energized."
       },
       "mind": {
         "title": "Mind (Learning / Mental Strength)",
-        "description": "Quality of thinking, focus, learning, and resilience.\\nAre you learning consistently and managing stress and emotions well?"
+        "description": "Quality of thinking, focus, learning, and resilience.<br />Are you learning consistently and managing stress and emotions well?"
       },
       "soul": {
         "title": "Soul (Inner Peace / Meaning)",
-        "description": "Inner peace, meaning, beliefs, and spirituality (not necessarily religion).\\nDo you feel grounded and connected to yourself?"
+        "description": "Inner peace, meaning, beliefs, and spirituality (not necessarily religion).<br />Do you feel grounded and connected to yourself?"
       },
       "fun": {
         "title": "Fun (Leisure / Enjoyment)",
-        "description": "Joy, relaxation, hobbies, and entertainment.\\nDo you allow yourself to enjoy life—not just responsibilities?"
+        "description": "Joy, relaxation, hobbies, and entertainment.<br />Do you allow yourself to enjoy life—not just responsibilities?"
       },
       "romance": {
         "title": "Romance (Intimacy / Partnership)",
-        "description": "Quality of your romantic or intimate connection.\\nIncludes communication, trust, companionship, and emotional fulfillment."
+        "description": "Quality of your romantic or intimate connection.<br />Includes communication, trust, companionship, and emotional fulfillment."
       },
       "family": {
         "title": "Family",
-        "description": "Your relationship with your family of origin or the family you build.\\nSupport, connection quality, and balanced responsibilities."
+        "description": "Your relationship with your family of origin or the family you build.<br />Support, connection quality, and balanced responsibilities."
       },
       "friends": {
         "title": "Friends (Social Life)",
-        "description": "The depth and breadth of your social circle.\\nDo you have honest, supportive relationships?"
+        "description": "The depth and breadth of your social circle.<br />Do you have honest, supportive relationships?"
       },
       "growth": {
         "title": "Growth (Personal Development)",
-        "description": "Personal growth, skill-building, and stepping outside your comfort zone.\\nBeyond career: character and perspective growth too."
+        "description": "Personal growth, skill-building, and stepping outside your comfort zone.<br />Beyond career: character and perspective growth too."
       },
       "money": {
         "title": "Money (Financial Security)",
-        "description": "Income, savings, investing, security, and control over money.\\nNot just how much you earn—whether you feel safe and have choices."
+        "description": "Income, savings, investing, security, and control over money.<br />Not just how much you earn—whether you feel safe and have choices."
       }
     }
   },
