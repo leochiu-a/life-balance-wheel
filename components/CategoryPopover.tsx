@@ -1,6 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { createPortal } from 'react-dom';
-import { CATEGORY_INFO } from '../constants';
 
 export default function CategoryPopover(props: {
   popover: { id: string; left: number; top: number } | null;
@@ -8,8 +8,10 @@ export default function CategoryPopover(props: {
   const { popover } = props;
   if (!popover) return null;
 
-  const info = CATEGORY_INFO[popover.id];
-  if (!info) return null;
+  const { t } = useTranslation();
+
+  const title = t(`categories.info.${popover.id}.title`);
+  const description = t(`categories.info.${popover.id}.description`);
 
   return createPortal(
     <div
@@ -18,8 +20,8 @@ export default function CategoryPopover(props: {
       role="tooltip"
     >
       <div className="w-[min(360px,calc(100vw-2rem))] -translate-x-1/2 -translate-y-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-sans text-slate-700 shadow-lg">
-        <div className="font-bold">{info.title.en}</div>
-        <div className="mt-1 text-slate-600 whitespace-pre-line">{info.description.en}</div>
+        <div className="font-bold">{title}</div>
+        <div className="mt-1 text-slate-600 whitespace-pre-line">{description}</div>
       </div>
     </div>,
     document.body

@@ -1,13 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Download, Copy } from "lucide-react";
 import BalanceChart from "./components/BalanceChart";
 import Header from "./components/Header";
 import AttributionFooter from "./components/AttributionFooter";
 import { INITIAL_DATA, CHART_SIZE as BASE_CHART_SIZE } from "./constants";
-import { Category } from "./types";
-import { Download, Copy } from "lucide-react";
+import { Category, CategoryBase, Locale } from "./types";
 
 export default function App() {
-  const [data, setData] = useState<Category[]>(INITIAL_DATA);
+  const { t, i18n } = useTranslation();
+  const [data, setData] = useState<CategoryBase[]>(INITIAL_DATA);
   const [copied, setCopied] = useState(false);
   const [chartSize, setChartSize] = useState(BASE_CHART_SIZE);
   const chartContainerRef = useRef<HTMLDivElement>(null);
@@ -35,6 +37,19 @@ export default function App() {
     );
   };
 
+  const handleChangeLanguage = (locale: Locale) => {
+    i18n.changeLanguage(locale);
+  };
+
+  const localizedData: Category[] = useMemo(
+    () =>
+      data.map((item) => ({
+        ...item,
+        label: t(`categories.labels.${item.id}`),
+      })),
+    [data, t, i18n.language]
+  );
+
   const handleDownload = () => {
     const canvas = document.querySelector("canvas");
     if (!canvas) return;
@@ -60,9 +75,7 @@ export default function App() {
       });
     } catch (err) {
       console.error("Failed to copy", err);
-      alert(
-        "Browser doesn't support direct image copy. Please use Download instead."
-      );
+      alert(t("ui.copyUnsupported"));
     }
   };
 
@@ -73,12 +86,15 @@ export default function App() {
           className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-10 border-2 border-stone-200"
           ref={chartContainerRef}
         >
-          <Header />
+          <Header
+            onChangeLanguage={handleChangeLanguage}
+            currentLocale={(i18n.language as Locale) ?? "en"}
+          />
 
           <div className="flex flex-col items-center">
             <div className="bg-[#fdfbf7] p-4 rounded-lg shadow-inner border border-stone-100 mb-8 w-full flex justify-center overflow-x-auto">
               <BalanceChart
-                data={data}
+                data={localizedData}
                 onChange={handleChartChange}
                 size={chartSize}
               />
@@ -89,7 +105,7 @@ export default function App() {
                 onClick={handleDownload}
                 className="flex items-center justify-center gap-2 px-5 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full font-semibold transition-colors shadow-sm min-w-[140px]"
               >
-                <Download size={20} /> Save
+                <Download size={20} /> {t("ui.save")}
               </button>
 
               <button
@@ -101,17 +117,17 @@ export default function App() {
                 }`}
               >
                 {copied ? (
-                  <>Copied! ✨</>
+                  <>{t("ui.copied")}</>
                 ) : (
                   <>
-                    <Copy size={20} /> Copy
+                    <Copy size={20} /> {t("ui.copy")}
                   </>
                 )}
               </button>
             </div>
 
             <div className="mt-8 text-center text-sm text-gray-400">
-              <p>Tip: Click and drag on the wheel to paint your life balance.</p>
+              <p>{t("ui.tip")}</p>
             </div>
           </div>
         </div>

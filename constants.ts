@@ -1,24 +1,44 @@
-import { Category } from './types';
+import { CategoryBase, Locale } from './types';
 
-export const INITIAL_DATA: Category[] = [
-  { id: 'body', label: 'Body', value: 5, color: '#86efac', group: 'Health' },     // Green
-  { id: 'mind', label: 'Mind', value: 6, color: '#4ade80', group: 'Health' },     // Green
-  { id: 'soul', label: 'Soul', value: 4, color: '#22c55e', group: 'Health' },     // Green
-  { id: 'fun', label: 'Fun', value: 7, color: '#facc15', group: 'Fun' },          // Yellow
-  { id: 'romance', label: 'Romance', value: 5, color: '#fdba74', group: 'Rel' },  // Orange
-  { id: 'family', label: 'Family', value: 8, color: '#ea580c', group: 'Rel' },    // Burnt Orange
-  { id: 'friends', label: 'Friends', value: 6, color: '#94a3b8', group: 'Rel' },  // Slate/Blueish
-  { id: 'growth', label: 'Growth', value: 4, color: '#60a5fa', group: 'Work' },   // Blue
-  { id: 'money', label: 'Money', value: 5, color: '#3b82f6', group: 'Work' },     // Blue
-  { id: 'mission', label: 'Mission', value: 6, color: '#2563eb', group: 'Work' },  // Blue
+export const DEFAULT_LOCALE: Locale = 'en';
+
+export const LANGUAGE_LABELS: Record<Locale, string> = {
+  en: 'English',
+  zh: '中文',
+};
+
+export const CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
+  body: { en: 'Body', zh: '身體' },
+  mind: { en: 'Mind', zh: '心智' },
+  soul: { en: 'Soul', zh: '心靈' },
+  fun: { en: 'Fun', zh: '玩樂' },
+  romance: { en: 'Romance', zh: '親密關係' },
+  family: { en: 'Family', zh: '家庭' },
+  friends: { en: 'Friends', zh: '朋友' },
+  growth: { en: 'Growth', zh: '成長' },
+  money: { en: 'Money', zh: '財務' },
+  mission: { en: 'Mission', zh: '使命' },
+};
+
+export const INITIAL_DATA: CategoryBase[] = [
+  { id: 'body', value: 5, color: '#86efac', group: 'Health' },     // Green
+  { id: 'mind', value: 6, color: '#4ade80', group: 'Health' },     // Green
+  { id: 'soul', value: 4, color: '#22c55e', group: 'Health' },     // Green
+  { id: 'fun', value: 7, color: '#facc15', group: 'Fun' },         // Yellow
+  { id: 'romance', value: 5, color: '#fdba74', group: 'Rel' },     // Orange
+  { id: 'family', value: 8, color: '#ea580c', group: 'Rel' },      // Burnt Orange
+  { id: 'friends', value: 6, color: '#94a3b8', group: 'Rel' },     // Slate/Blueish
+  { id: 'growth', value: 4, color: '#60a5fa', group: 'Work' },     // Blue
+  { id: 'money', value: 5, color: '#3b82f6', group: 'Work' },      // Blue
+  { id: 'mission', value: 6, color: '#2563eb', group: 'Work' },    // Blue
 ];
 
 export const CHART_SIZE = 600;
 export const MAX_VALUE = 10;
 
 export type CategoryInfo = {
-  title: { zh: string; en: string };
-  description: { zh: string; en: string };
+  title: Record<Locale, string>;
+  description: Record<Locale, string>;
 };
 
 export const CATEGORY_INFO: Record<string, CategoryInfo> = {
@@ -94,7 +114,7 @@ export const CATEGORY_INFO: Record<string, CategoryInfo> = {
   },
 };
 
-export const USAGE_GUIDE = {
+export const USAGE_GUIDE: Record<Locale, string[]> = {
   zh: [
     '不求平均：人生不同階段，本來就會有側重',
     '找落差：最低分的象限通常是壓力來源',
@@ -105,4 +125,35 @@ export const USAGE_GUIDE = {
     'Look for gaps: the lowest area is often where stress comes from',
     'Make small shifts: pick 1–2 areas and set small, doable actions',
   ],
+};
+
+export const UI_TEXT: Record<
+  | 'title'
+  | 'subtitle'
+  | 'save'
+  | 'copy'
+  | 'copied'
+  | 'tip'
+  | 'copyUnsupported',
+  Record<Locale, string>
+> = {
+  title: {
+    en: 'Life Balance Wheel',
+    zh: '人生平衡輪',
+  },
+  subtitle: {
+    en: 'How is your life going? Drag the slices to reflect your current state.',
+    zh: '你的生活過得怎麼樣？拖拉輪盤的切片，畫出現在的狀態。',
+  },
+  save: { en: 'Save', zh: '下載圖片' },
+  copy: { en: 'Copy', zh: '複製圖片' },
+  copied: { en: 'Copied! ✨', zh: '已複製！✨' },
+  tip: {
+    en: 'Tip: Click and drag on the wheel to paint your life balance.',
+    zh: '提示：點擊並拖曳輪盤，就能畫出你的生活平衡。',
+  },
+  copyUnsupported: {
+    en: "Browser doesn't support direct image copy. Please use Download instead.",
+    zh: '瀏覽器不支援直接複製圖片，請改用下載。',
+  },
 };

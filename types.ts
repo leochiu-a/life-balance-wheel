@@ -10,3 +10,7 @@ export interface Point {
   x: number;
   y: number;
 }
+
+export type Locale = 'en' | 'zh';
+
+export type CategoryBase = Omit<Category, 'label'>;
